@@ -2,7 +2,9 @@ package com.example.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,5 +23,16 @@ class MainActivity : AppCompatActivity() {
             Todo("Go Jogging", false),
 
         )
+
+        val adapter = TodoAdapter(todoList)
+        rvTodos.adapter = adapter
+        rvTodos.layoutManager = LinearLayoutManager(this)
+
+        btnAddTodo.setOnClickListener {
+            val title = etNewTodo.text.toString()
+            val todo = Todo(title, false)
+            todoList.add(todo)
+            adapter.notifyItemInserted(todoList.size-1)
+        }
     }
 }
