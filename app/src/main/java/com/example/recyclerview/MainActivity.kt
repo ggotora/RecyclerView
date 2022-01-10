@@ -11,5 +11,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var todoList = mutableListOf(
+            Todo("Learn Kotlin", false),
+            Todo("Go Jogging", false),
+            Todo("LEarn Fragments", false),
+            Todo("Go To Mbare", false),
+            Todo("Look for loads", false),
+            Todo("Go Jogging", false),
+
+        )
     }
 }
